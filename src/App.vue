@@ -1,16 +1,26 @@
 <template>
   <div id="app">
     <Header/>
+	<Start/>
+	<Welcome/>
+	<AllTasks/>
+	<Timer/>
+	<ShowTask/>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Start from "./components/Start.vue";
+import Welcome from "./components/Welcome.vue";
+import AllTasks from "./components/AllTasks.vue";
+import Timer from "./components/Timer.vue";
+import ShowTask from "./components/ShowTask.vue";
 
 export default {
   name: "App",
   components: {
-    Header
+    Header, Start, Welcome, AllTasks, Timer, ShowTask
   }
 };
 </script>
