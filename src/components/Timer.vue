@@ -1,15 +1,12 @@
 <template>
-	<div>
-		<p>Timer</p>
-	</div>
+  <div>
+    <p>Timer</p>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
+<style scoped>
 </style>
