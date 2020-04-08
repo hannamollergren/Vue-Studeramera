@@ -17,13 +17,7 @@ export default {
 
 
 <style>
-
 @import url('https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap');
-p {
-  font-family: Roboto, sans-serif;
-  color: #f8a978;
-  font-size: 1.2em;
-}
 
 *{
 box-sizing: border-box;
@@ -31,14 +25,26 @@ padding: 0;
 margin: 0;
 }
 
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body{
+	background-color: #FCF9EA;
+}
+
 h1,
 h2,
 h3 {
   font-family: Viga, sans-serif;
+  color: #f8a978;
 }
-/* 
-* Buttons
-*/
+p {
+  font-family: Roboto, sans-serif;
+  color: #f8a978;
+  font-size: 1.2em;
+}
+/* Buttons */
 button {
   font-family: Roboto, sans-serif;
   padding: 0.8em 1.3em 0.8em; 
@@ -52,19 +58,10 @@ button {
 
 button:hover {
   background-color: #6c9b95;
-
 }
 
-#app {
-  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
 
-/* 
-* Input
-*/
+/* Input */
 input[type=text] {
   padding: 0.7em;
   border-radius: 10px;
@@ -72,7 +69,6 @@ input[type=text] {
   box-sizing: border-box;
   
 }
-
 ::placeholder {
 color: lightgrey;
 }

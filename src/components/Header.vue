@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2 class="“logo”">Studera mera</h2>
+    <h2 class="logo">Studera mera</h2>
   </header>
 </template>
 
@@ -9,8 +9,8 @@
 
 <style scoped>
 .logo {
-  color: #f8a978;
-  padding: 1em;
-  margin: 0;
+	color: #f8a978;
+	padding: 1em;
+	margin: 0;
 }
 </style>
