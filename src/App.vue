@@ -3,9 +3,10 @@
     <Header/>
 	<Start/>
 	<Welcome/>
-	<AllTasks/>
 	<Timer/>
 	<ShowTask/>
+	<AllTasks/>
+	
   </div>
 </template>
 
@@ -73,9 +74,8 @@ button:hover {
 
 /* Input */
 input[type=text] {
-  padding: 0.7em;
+  padding: 0.8em;
   border-radius: 10px;
-  border: 2px solid #89c8c1;
   box-sizing: border-box;
   
 }
