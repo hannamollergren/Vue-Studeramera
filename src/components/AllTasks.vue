@@ -67,7 +67,7 @@ p{
 }
 .container-right{
 	grid-column: 2/2;
-	padding: 6em 1em 2em;
+	padding: 5.3em 1em 2em;
 }
 .tasks{
 	padding: 0.7em;
@@ -75,7 +75,6 @@ p{
 input{
 	width: 50%;
 	margin: 1em 1em 2em 4em;
-	padding: 0;
 	border: none;
 }
 button{
