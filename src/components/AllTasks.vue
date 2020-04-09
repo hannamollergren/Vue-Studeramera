@@ -5,7 +5,7 @@
 		</div>
 		<div class="container">
 				<div class="item-left">
-					<h2>Aktiviteter</h2>
+					<h2>Aktiviteter att se fram emot</h2>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa aut qui quia dolor vel nisi maiores praesentium! Saepe, magnam dolorem eos delectus earum atque aliquid. Minus autem tempora dolor error.</p>
 					<input type="text" placeholder="Skriv aktivitet här..." @keyup="addTask"><button @click="saveButton" class="save">Spara</button>
 				</div>
@@ -22,9 +22,11 @@
 </template>
 
 <script>
+import TaskService from "../shared/TaskService.js";
 export default {
+	mixins: [TaskService],
 	data: () => ({
-		tasks: ["5 situps och 5 armhävningar", "Promenera minst 1 km"," Una dig något gott", "Meditera 5 minuter", "Drick två stora glas vatten", "Tänk på tre positiva saker om dig själv", "Ta en kopp kaffe", "Njut av livet", "Sitt en stund i solen","Stretcha kroppen", "Ta 10 djupa andetag", "10 jumping jacks", "Dansa i regnet", "Gå två varv runt huset", "Lyssna på din favorit låt", "Plankan 30 sekunder", "Rask promenad 10 minuter", "Löpning 15 minuter", "Ta en varmdusch", "Drick något svalkande", "Cykla 3 km i medelhögt tempo", "Baka en kaka"],
+		tasks: [],
 		inputSearch: String,
 		inputAdd: String,
 		copy: [],
@@ -49,21 +51,16 @@ export default {
 			console.log('tasks', this.tasks);
 			localStorage.setItem('tasks', this.tasks);
 		},
-		getTasks(){
-			localStorage.getItem('tasks')
-			
-		}
-		
-
 	},
 	computed: {
 
 	},
-	created(){
+	mounted(){
+		console.log('getTasks från service', this.getTasks());
 		
-		console.log(this.tasks.slice(0,6));
+		this.tasks = this.getTasks();
 		this.tasks = this.tasks.slice(0,6)
-	}
+	},
 	
 
 
