@@ -63,12 +63,13 @@ button {
   color: white;
   border-radius: 46px;
   border: none;
-  transition: 0.5s;
   cursor: pointer;
+  font-size: 0.9em;
 }
 
 button:hover {
   background-color: #6c9b95;
+  transition: 0.5s;
 }
 
 
@@ -77,6 +78,7 @@ input[type=text] {
   padding: 0.8em;
   border-radius: 10px;
   box-sizing: border-box;
+  font-size: 0.9em;
   
 }
 ::placeholder {
