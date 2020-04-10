@@ -22,33 +22,33 @@ export default {
   methods:{
 startTimer() {
 
-    //Ange timern i sek
-    let duration =1*2;
-    //initialisera timer i minuter och sekunder
+    // ange timern i sek
+    let duration =60*25;
+    // initialisera timer i minuter och sekunder
     let timer = duration, 
         minutes, 
         seconds;
    
-    //setting för tidsintervallet
+    // setting för tidsintervallet
    this.intervalId = setInterval( ()=> {
 
-       //konvertera string till integer
+       // konvertera string till integer
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
 
     
-        //om "minutes" mindre än 10 ska en 0 läggas framför, annars visas bara siffran
+        // om "minutes" mindre än 10 ska en 0 läggas framför, annars visas bara siffran
         minutes = minutes < 10 ? "0" + minutes : minutes;
-        //om "seconds" mindre än 10 ska en 0 läggas framför, annars visas bara siffran
+        // om "seconds" mindre än 10 ska en 0 läggas framför, annars visas bara siffran
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
 
     this.display = minutes + ":" + seconds;
     
     
-        //minska timer värdet, om värdet är mindre än noll är timern stoppad. Då emittas timeup eventet.
+        // minska timer värdet, om värdet är mindre än noll är timern stoppad. Då emittas timeup eventet.
         if (--timer < 0) {
-            //stoppa tidsintervallet
+            // stoppa tidsintervallet
             clearInterval(this.intervalId);
             this.$emit("timeup")
             timer = duration;
@@ -59,14 +59,14 @@ startTimer() {
     }, 1000); 
 },
 resetTimer(){
-    //nollställ tids intervallet
+    // nollställ tids intervallet
     clearInterval(this.intervalId);
     // sätter timern till 00:00
     this.display = "00" + ":" + "00";
 }
   },
   created(){
-      //initialisera med  00:00
+      // initialisera med  00:00
       this.display = "00" + ":" + "00";
   }
 }
