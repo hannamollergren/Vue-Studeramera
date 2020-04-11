@@ -12,6 +12,6 @@
 	color: #f8a978;
 	padding: 1em;
 	margin: 0;
-  background: rgb(131, 64, 64);
+  background: #ffc5a1;
 }
 </style>

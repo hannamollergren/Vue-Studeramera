@@ -61,13 +61,13 @@ startTimer() {
 resetTimer(){
     // nollställ tids intervallet
     clearInterval(this.intervalId);
-    // sätter timern till 00:00
-    this.display = "00" + ":" + "00";
+    // sätter timern till en viss start tid
+    this.display = "25" + ":" + "00";
 }
   },
   created(){
-      // initialisera med  00:00
-      this.display = "00" + ":" + "00";
+      // initialisera med en viss starttid
+      this.display = "25" + ":" + "00";
   }
 }
 </script>
@@ -75,6 +75,7 @@ resetTimer(){
 
 <style scoped>
 .container{
+    /*padding: 10em;*/
     width: 100%;
     height: 900px;
     background-color: #FCF9EA;
@@ -82,7 +83,7 @@ resetTimer(){
     color: #F8A978;
 }
 .timer{
-    font-size: 80px;
+    font-size: 100px;
 }
 .timer-message{
     font-size:25px;
@@ -99,7 +100,7 @@ resetTimer(){
   display: inline-block;
   font-size: 16px;
 }
-
+button:focus {outline:0;}
 .button-reset {
   border-radius: 25px;
   margin-right: 20px;
@@ -111,5 +112,6 @@ resetTimer(){
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  
 }
 </style>
