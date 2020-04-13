@@ -19,6 +19,7 @@ import ShowTask from "./components/ShowTask.vue";
 
 export default {
   name: "App",
+  
   components: {
     Header,
     Start,
