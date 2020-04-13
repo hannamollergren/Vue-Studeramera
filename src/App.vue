@@ -1,12 +1,16 @@
 <template>
-  <div id="app">
+  <div>
+
     <Header/>
-	<Start/>
-	<Welcome/>
-	<AllTasks/>
-	<Timer/>
-	<ShowTask/>
+    <Start/>
+    <Welcome/>
+    <AllTasks/>
+    <Timer/>
+    <ShowTask/>
+
   </div>
+  
+
 </template>
 
 <script>
@@ -19,28 +23,33 @@ import ShowTask from "./components/ShowTask.vue";
 
 export default {
   name: "App",
+
   components: {
-    Header, Start, Welcome, AllTasks, Timer, ShowTask
+    Header,
+    Start,
+    Welcome,
+    AllTasks,
+    Timer,
+    ShowTask
   }
 };
 </script>
 
-
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap");
 
-*{
-box-sizing: border-box;
-padding: 0;
-margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body{
-	background-color: #FCF9EA;
+body {
+  background-color: #fcf9ea;
 }
 
 h1,
@@ -57,7 +66,7 @@ p {
 /* Buttons */
 button {
   font-family: Roboto, sans-serif;
-  padding: 0.8em 1.3em 0.8em; 
+  padding: 0.8em 1.3em 0.8em;
   background-color: #89c8c1;
   color: white;
   border-radius: 46px;
@@ -70,18 +79,14 @@ button:hover {
   background-color: #6c9b95;
 }
 
-
 /* Input */
-input[type=text] {
+input[type="text"] {
   padding: 0.7em;
   border-radius: 10px;
   border: 2px solid #89c8c1;
   box-sizing: border-box;
-  
 }
 ::placeholder {
-color: lightgrey;
+  color: lightgrey;
 }
-
-
 </style>
