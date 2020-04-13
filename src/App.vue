@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <Header />
-    <Start />
-    <Welcome />
-    <AllTasks />
-    <Timer />
-    <ShowTask />
+    <Start v-if="showSta"/> <!-- v-if="false" hade också döljt den -->
+    <Welcome v-if="showWel"/>
+    <AllTasks v-if="showAllTas"/>
+    <!-- Är showShoTas false visas Timer komponenten, annars visas ShowTask komponenten -->
+    <Timer v-if="!showShoTas" v-on:timeup="showShowTask"/>
+    <ShowTask v-if="showShoTas"/>
+    
   </div>
 </template>
 
@@ -19,7 +21,15 @@ import ShowTask from "./components/ShowTask.vue";
 
 export default {
   name: "App",
-  
+  data() {
+    return{
+      showSta: false,
+      showWel: false,
+      showAllTas: false,
+      // showTim: false, showTime är inte relevant ännu
+      showShoTas: false,
+    };
+  },  
   components: {
     Header,
     Start,
@@ -27,6 +37,17 @@ export default {
     AllTasks,
     Timer,
     ShowTask
+  },
+  methods:{
+    //
+    showShowTask()
+      {
+        this.showSta = true;
+        this.showWel = true;
+        this.showAllTas = true;
+        // showTim: false, showTime är inte relevant ännu
+        this.showShoTas = true;
+      }
   }
 };
 </script>
