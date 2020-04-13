@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <Header />
-    <Start v-if="showSta"/> <!-- v-if="false" hade också döljt den -->
-    <Welcome v-if="showWel"/>
-    <AllTasks v-if="showAllTas"/>
+    <Start v-if="showStart"/> <!-- v-if="false" hade också döljt den -->
+    <Welcome v-if="showWelcome"/>
+    <AllTasks v-if="showAllTasks"/>
     <!-- Är showShoTas false visas Timer komponenten, annars visas ShowTask komponenten -->
-    <Timer v-if="!showShoTas" v-on:timeup="showShowTask"/>
-    <ShowTask v-if="showShoTas"/>
+    <Timer v-if="!showShowTask" v-on:timeup="visible"/>
+    <ShowTask v-if="showShowTask"/>
     
   </div>
 </template>
@@ -23,11 +23,11 @@ export default {
   name: "App",
   data() {
     return{
-      showSta: false,
-      showWel: false,
-      showAllTas: false,
-      // showTim: false, showTime är inte relevant ännu
-      showShoTas: false,
+      showStart: false,
+      showWelcome: false,
+      showAllTasks: false,
+      // showTimer: false, showTime är inte relevant ännu
+      showShowTask: false,
     };
   },  
   components: {
@@ -39,14 +39,14 @@ export default {
     ShowTask
   },
   methods:{
-    //
-    showShowTask()
+    // "visible" blir true om timeup event emittar
+    visible()
       {
-        this.showSta = true;
-        this.showWel = true;
-        this.showAllTas = true;
-        // showTim: false, showTime är inte relevant ännu
-        this.showShoTas = true;
+        this.showStart = true;
+        this.showWelcome = true;
+        this.showAllTasks = true;
+        // showTimer: false, showTime är inte relevant ännu
+        this.showShowTask = true;
       }
   }
 };
