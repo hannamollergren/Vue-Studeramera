@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <Header />
-    <Start v-if="showStart"/> <!-- v-if="false" hade också döljt den -->
-    <Welcome v-if="showWelcome"/>
-    <AllTasks v-if="showAllTasks"/>
-    <!-- Är showShoTas false visas Timer komponenten, annars visas ShowTask komponenten -->
-    <Timer v-if="!showShowTask" v-on:timeup="visible"/>
-    <ShowTask v-if="showShowTask"/>
-    
+    <Start v-if="displayStart" />
+    <!-- v-if="false" hade också döljt den -->
+    <Welcome v-if="displayWelcome" v-on:timeup="visible"/>
+    <AllTasks v-if="displayAllTasks" />
+    <!-- Är displayShowTask false visas Timer komponenten, annars visas ShowTask komponenten -->
+    <Timer v-if="!displayShowTask" v-on:timeup="visible" />
+    <ShowTask v-if="displayShowTask" />
+
   </div>
 </template>
 
@@ -22,14 +23,14 @@ import ShowTask from "./components/ShowTask.vue";
 export default {
   name: "App",
   data() {
-    return{
-      showStart: false,
-      showWelcome: false,
-      showAllTasks: false,
-      // showTimer: false, showTime är inte relevant ännu
-      showShowTask: false,
+    return {
+      displayStart: false,
+      displayWelcome: false,
+      displayAllTasks: false,
+      // displayTimer: false, displayTime är inte relevant ännu
+      displayShowTask: false
     };
-  },  
+  },
   components: {
     Header,
     Start,
@@ -38,16 +39,15 @@ export default {
     Timer,
     ShowTask
   },
-  methods:{
+  methods: {
     // "visible" blir true om timeup event emittar
-    visible()
-      {
-        this.showStart = true;
-        this.showWelcome = true;
-        this.showAllTasks = true;
-        // showTimer: false, showTime är inte relevant ännu
-        this.showShowTask = true;
-      }
+    visible() {
+      this.displayStart = true;
+      this.displayWelcome = true;
+      this.displayAllTasks = true;
+      // displayTimer: false, displayTime är inte relevant ännu
+      this.displayShowTask = true;
+    }
   }
 };
 </script>
@@ -101,6 +101,10 @@ button {
 
 button:hover {
   background-color: #6c9b95;
+}
+
+button:focus {
+  outline: 0;
 }
 
 /* Input */

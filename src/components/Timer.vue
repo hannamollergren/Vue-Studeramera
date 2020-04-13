@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <!-- visa timer här -->
-    <label id='time' class="timer"><strong>{{display}}</strong></label>
+    <label id='time' class="timer"><h2>{{display}}</h2></label>
         <p class="timer-message">Minuter kvar till rast</p>
     <!-- binder on click funktion för att starta och nollställa timer -->
     <button v-on:click="startTimer" class="button-start">Start</button>
@@ -74,6 +74,12 @@ resetTimer(){
 
 
 <style scoped>
+h1,
+h2,
+h3 {
+  font-family: Viga, sans-serif;
+  color: #f8a978;}
+
 .container{
     /*padding: 10em;*/
     width: 100%;
@@ -82,8 +88,9 @@ resetTimer(){
     text-align: center;
     color: #F8A978;
 }
+
 .timer{
-    font-size: 100px;
+    font-size: 4em;
 }
 .timer-message{
     font-size:25px;
@@ -100,7 +107,7 @@ resetTimer(){
   display: inline-block;
   font-size: 16px;
 }
-button:focus {outline:0;}
+
 .button-reset {
   border-radius: 25px;
   margin-right: 20px;
@@ -111,7 +118,9 @@ button:focus {outline:0;}
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  
+  font-size: 16px
+}
+button:hover {
+  background-color: #6c9b95;
 }
 </style>
