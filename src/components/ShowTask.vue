@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <div class="banner"><p>Studera Mera</p></div>
         <div class="approval">
             <p>Bra jobbat {{user}} Hanna!</p>
         </div>
@@ -48,7 +47,6 @@ export default {
         margin: 1.5em;
     }
     .approval {
-        font-size: 2.2em;
         margin-top: 1em;
     }
     .pastime {

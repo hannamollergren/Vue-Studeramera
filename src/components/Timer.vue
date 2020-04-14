@@ -24,7 +24,8 @@ export default {
 startTimer() {
 
     // ange timern i sek
-	let duration = 60*25;
+	/* let duration = 60*25; */
+	let duration = 4;
 	
     // initialisera timer i minuter och sekunder
     let timer = duration, 
