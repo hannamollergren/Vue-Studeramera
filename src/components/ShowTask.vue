@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="banner"><p>Studera Mera</p></div>
+        <!-- <div class="banner"><p>Studera Mera</p></div> -->
         <div class="approval">
             <p>Bra jobbat {{user}} Hanna!</p>
         </div>
@@ -29,7 +29,6 @@ export default {
     mounted(){
         console.log('getTasks från service', this.getTasks());
         this.tasks = this.getTasks();
-        this.tasks = this.tasks.slice(0,6)
     },
 }
 </script>
@@ -48,12 +47,11 @@ export default {
         margin: 1.5em;
     }
     .approval {
-        font-size: 2.2em;
-        margin-top: 1em;
+        font-size: 1.5em;
     }
     .pastime {
         font-size: 4em;
-        margin: 1em;
+        margin: .5em;
         max-width: 722px;
     }
     .learn {
