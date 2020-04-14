@@ -53,13 +53,14 @@ export default {
 		// Addera ny aktivitet
 		addTask(event){
 			this.inputAdd = event.target.value;
-			//! TÖM INPUT
+			//! TÖM INPUT v-model
 		},
 		// Pushar aktivitet till lista
 		saveButton(){
 			let add = this.inputAdd.charAt(0).toUpperCase() + this.inputAdd.slice(1);
 			this.tasks.unshift(add);
 			this.setTasks();
+			this.inputAdd = '';
 		},
 		// Delete knapp
 		deleteButton(x){
@@ -152,8 +153,6 @@ p{
 	padding: 0.1em 0.5em 0.2em;
 	border-radius: 5px;
 	margin: 0 0.5em 0 0;
-
-
 }
 input{
 	width: 55%;
@@ -179,7 +178,9 @@ button:disabled{
 }
 .next{ 
 	margin: 0em 0 0 4em;
-	align-self: center;
+	/* align-self: center; */
+	position: fixed;
+	top: 60%;
 	cursor: pointer;
 }
 .error{
@@ -238,6 +239,8 @@ button:disabled{
 }
 .next{
 	margin: auto;
+	position: relative;
+	top: 1em;
 }
 .sort{
 	margin: 0 0 0 2em;

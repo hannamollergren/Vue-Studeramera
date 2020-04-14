@@ -8,8 +8,6 @@
       <button v-on:click="resetTimer" class="button-reset">Nollställ</button>
   </div>
 </template>
-
-
 <script>
 export default {
   name: 'Timer',
@@ -22,7 +20,6 @@ export default {
   },
   methods:{
 startTimer() {
-
     // ange timern i sek
 	/* let duration = 60*25; */
 	let duration = 4;
@@ -34,18 +31,14 @@ startTimer() {
    
     // setting för tidsintervallet
    this.intervalId = setInterval( ()=> {
-
        // konvertera string till integer
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
-
     
         // om "minutes" mindre än 10 ska en 0 läggas framför, annars visas bara siffran
         minutes = minutes < 10 ? "0" + minutes : minutes;
         // om "seconds" mindre än 10 ska en 0 läggas framför, annars visas bara siffran
         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-
     this.display = minutes + ":" + seconds;
     
     
@@ -75,8 +68,6 @@ resetTimer(){
   }
 }
 </script>
-
-
 <style scoped>
 .container{
     width: 100%;
@@ -105,7 +96,6 @@ resetTimer(){
   display: inline-block;
   font-size: 16px;
 }
-
 .button-reset {
   border-radius: 25px;
   margin-right: 10px;

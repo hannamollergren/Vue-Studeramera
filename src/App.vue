@@ -5,7 +5,7 @@
     <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
     <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
     <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
-	<!-- Todo ShowTask -> Start  -->
+    <!-- Todo ShowTask -> Start  -->
     <ShowTask v-if="visibleComponent == 'showtask'"/>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   name: "App",
   data() {
     return{
-	visibleComponent: 'start',
+    visibleComponent: 'start',
     };
   },  
   components: {
