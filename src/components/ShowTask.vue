@@ -2,7 +2,7 @@
     <div class="container">
         <!-- <div class="banner"><p>Studera Mera</p></div> -->
         <div class="approval">
-            <p>Bra jobbat {{user}} Hanna!</p>
+            <p>Bra jobbat {{user}}!</p>
         </div>
         <div class="pastime">
             <div>
@@ -14,9 +14,11 @@
 </template>
 <script>
 import TaskService from "../shared/TaskService.js";
+import nameMixin from '../nameMixin';
 export default {
-    mixins: [TaskService],
+    mixins: [TaskService, nameMixin],
     data: () => ({
+        user: "",
         tasks: [],
         inputSearch: String,
         inputAdd: String,
@@ -27,8 +29,10 @@ export default {
     computed: {
     }, */
     mounted(){
-        console.log('getTasks från service', this.getTasks());
-        this.tasks = this.getTasks();
+        console.log('getTasks från service', this.getAddedTasks());
+        this.tasks = this.getAddedTasks();
+        this.user = this.getName();
+        console.log("detta är user: ",this.user);
     },
 }
 </script>
@@ -50,7 +54,7 @@ export default {
         font-size: 1.5em;
     }
     .pastime {
-        font-size: 4em;
+        font-size: 3.8em;
         margin: .5em;
         max-width: 722px;
     }
@@ -67,11 +71,11 @@ export default {
         margin: 2em;
     }
     .approval {
-        font-size: 1.7em;
+        font-size: 1.1em;
         margin-top: 1em;
     }
     .pastime {
-        font-size: 2.5em;
+        font-size: 2.3em;
         margin: 1em;
         max-width: 722px;
     }

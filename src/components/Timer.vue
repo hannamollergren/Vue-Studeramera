@@ -77,7 +77,6 @@ h3 {
 .container{
     /*padding: 10em;*/
     width: 100%;
-    height: 900px;
     background-color: #FCF9EA;
     text-align: center;
     color: #F8A978;

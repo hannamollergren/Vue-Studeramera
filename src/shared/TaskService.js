@@ -9,5 +9,8 @@ export default {
 		getAddedTasks(){
 			return JSON.parse(localStorage.getItem('tasks'));
 		},
+		setTasks(){
+			return localStorage.setItem('tasks', JSON.stringify(this.tasks));
+		}
 	}
 }

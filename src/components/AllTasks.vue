@@ -12,7 +12,7 @@
 				</div>
 				<div class="item-right">
 					<div v-for="task in tasks" :key="task">
-						<p class="tasks">- {{ task }}</p>
+						<p class="tasks"><button class="delete" @click="deleteButton(task)">x</button> {{ task }}</p>
 					</div>
 				</div>
 				<div class="flex">
@@ -55,18 +55,27 @@ export default {
 			this.inputAdd = event.target.value;
 			//! TÖM INPUT
 		},
-		// Pusha & Spara aktivietet
+		// Pushar aktivitet till lista
 		saveButton(){
 			let add = this.inputAdd.charAt(0).toUpperCase() + this.inputAdd.slice(1);
 			this.tasks.unshift(add);
-			localStorage.setItem('tasks', JSON.stringify(this.tasks))
+			this.setTasks();
+		},
+		// Delete knapp
+		deleteButton(x){
+			console.log('deleteButton funkar');
+			this.tasks = this.tasks.filter(task => task != x)
+			console.log("delteButton", this.tasks);
+			this.setTasks();
 		},
 		// Nästa sida
 		nextButton(){
 			this.visibleComponent = 'timer';
 			console.log('allTasks comp visablecomponent', this.visibleComponent);
-			this.$emit('click', this.visibleComponent);
-		}
+			this.$emit('click', this.visibleComponent)
+			this.setTasks();
+			
+		},		
 	},
 	computed: {
 		addIsValid(){
@@ -94,7 +103,7 @@ export default {
 		}
 		else{
 			this.tasks = this.getAddedTasks();
-			console.log('else getTasksFromLS', this.tasks);
+			console.log('else getAddedTasks', this.tasks);
 		}
 	}
 }
@@ -107,6 +116,7 @@ export default {
 .search{
 	margin: 0 0 0 1em;
 	width: 30%;
+/* 	border: 2px solid #89c8c1; */
 }
 .container{
 	margin: 1em 3em 3em 3em;
@@ -133,10 +143,17 @@ p{
 	background: #FFC5A1;
 	border-radius: 0 20px 20px 0; 
 	grid-column: 2/2;
-	padding: 5.3em 1em 2em;
+	padding: 5.3em 2em 2em 1em;
 }
 .tasks{
 	padding: 0 0 1.2em;
+}
+.delete{
+	padding: 0.1em 0.5em 0.2em;
+	border-radius: 5px;
+	margin: 0 0.5em 0 0;
+
+
 }
 input{
 	width: 55%;
@@ -161,7 +178,7 @@ button:disabled{
 	display: flex;
 }
 .next{ 
-	margin: 0 0 0 4em;
+	margin: 0em 0 0 4em;
 	align-self: center;
 	cursor: pointer;
 }
