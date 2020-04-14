@@ -107,6 +107,7 @@ export default {
 .search{
 	margin: 0 0 0 1em;
 	width: 30%;
+/* 	border: 2px solid #89c8c1; */
 }
 .container{
 	margin: 1em 3em 3em 3em;
@@ -161,7 +162,7 @@ button:disabled{
 	display: flex;
 }
 .next{ 
-	margin: 0 0 0 4em;
+	margin: 0em 0 0 4em;
 	align-self: center;
 	cursor: pointer;
 }
