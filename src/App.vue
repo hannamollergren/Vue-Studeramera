@@ -13,7 +13,6 @@
     
   </div>
 </template>
-
 <script>
 import Header from "./components/Header.vue";
 import Start from "./components/Start.vue";
@@ -59,21 +58,18 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap');
-
 *{
 box-sizing: border-box;
 padding: 0;
 margin: 0;
 }
-
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 body{
-	background-color: #FCF9EA;
+    background-color: #FCF9EA;
 }
-
 h1,
 h2,
 h3 {
@@ -96,13 +92,11 @@ button {
   cursor: pointer;
   font-size: 0.9em;
 }
-
 button:hover {
   background-color: #6c9b95;
   transition: 0.5s;
 }
 button:focus {outline:0;}
-
 /* Input */
 input[type=text] {
   padding: 0.8em;
