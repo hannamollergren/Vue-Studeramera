@@ -12,7 +12,7 @@
 				</div>
 				<div class="item-right">
 					<div v-for="task in tasks" :key="task">
-						<p class="tasks">- {{ task }}</p>
+						<p class="tasks">- {{ task }}<button class="delete" @click="deleteButton(task)">x</button></p>
 					</div>
 				</div>
 				<div class="flex">
@@ -60,12 +60,24 @@ export default {
 			let add = this.inputAdd.charAt(0).toUpperCase() + this.inputAdd.slice(1);
 			this.tasks.unshift(add);
 			localStorage.setItem('tasks', JSON.stringify(this.tasks))
+
 		},
+		deleteButton(x){
+			console.log('deleteButton funkar');
+			this.tasks = this.tasks.filter(task => task != x)
+			console.log("delteButton", this.tasks);
+			localStorage.setItem('tasks', JSON.stringify(this.tasks))
+		},
+		/* removeEducation(education) {
+			this.profile.education = this.profile.education.filter(
+				edu => edu != education
+			); */
 		// Nästa sida
 		nextButton(){
 			this.visibleComponent = 'timer';
 			console.log('allTasks comp visablecomponent', this.visibleComponent);
 			this.$emit('click', this.visibleComponent);
+			localStorage.setItem('tasks', JSON.stringify(this.tasks))
 		}
 	},
 	computed: {
@@ -138,6 +150,12 @@ p{
 }
 .tasks{
 	padding: 0 0 1.2em;
+}
+/* //! */
+.delete{
+	padding: 0;
+	border-radius: 0;
+
 }
 input{
 	width: 55%;
