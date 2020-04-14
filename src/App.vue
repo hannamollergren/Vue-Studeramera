@@ -1,12 +1,16 @@
 <template>
   <div id="app">
-    <Header/>
-	<Start/>
-	<Welcome/>
-	<Timer/>
-	<ShowTask/>
-	<AllTasks/>
+    <Header />
+    <Start v-if="visibleComponent == 'start'" @click="fromStart"/>
+    <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
+    <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
+    <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
+	<!-- Todo ShowTask -> Start  -->
+    <ShowTask v-if="visibleComponent == 'showtask'"/>
 	
+
+	<h2>visibleComponent: {{visibleComponent}}</h2>
+    
   </div>
 </template>
 
@@ -17,15 +21,41 @@ import Welcome from "./components/Welcome.vue";
 import AllTasks from "./components/AllTasks.vue";
 import Timer from "./components/Timer.vue";
 import ShowTask from "./components/ShowTask.vue";
-
 export default {
   name: "App",
+  data() {
+    return{
+	visibleComponent: 'start',
+    };
+  },  
   components: {
-    Header, Start, Welcome, AllTasks, Timer, ShowTask
-  }
+    Header,
+    Start,
+    Welcome,
+    AllTasks,
+    Timer,
+    ShowTask
+  },
+  methods:{
+	fromStart(value){
+		console.log('fromStart', value);
+		this.visibleComponent = value;
+	},
+	fromWelcome(value){
+		console.log('fromWelcome', value);
+		this.visibleComponent = value;
+	},
+	fromAllTasks(value){
+		console.log('fromAlltasks', value);
+		this.visibleComponent = value;
+	},
+	fromTimer(value){
+		console.log('fromTimer', value);
+		this.visibleComponent = value;
+	},
+}
 };
 </script>
-
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap');
@@ -71,7 +101,7 @@ button:hover {
   background-color: #6c9b95;
   transition: 0.5s;
 }
-
+button:focus {outline:0;}
 
 /* Input */
 input[type=text] {
@@ -79,11 +109,8 @@ input[type=text] {
   border-radius: 10px;
   box-sizing: border-box;
   font-size: 0.9em;
-  
 }
 ::placeholder {
 color: lightgrey;
 }
-
-
 </style>
