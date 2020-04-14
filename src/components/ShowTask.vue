@@ -70,13 +70,16 @@ export default {
         margin: 2em;
     }
     .approval {
-        font-size: 1.7em;
+        font-size: 1.3em;
         margin-top: 1em;
     }
     .pastime {
         font-size: 2.5em;
         margin: 1em;
         max-width: 722px;
+    }
+	.learn {
+		font-size: 1.3em;
     }
 }
 </style>
