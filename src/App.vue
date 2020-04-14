@@ -7,10 +7,6 @@
     <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
 	<!-- Todo ShowTask -> Start  -->
     <ShowTask v-if="visibleComponent == 'showtask'"/>
-	
-
-	<h2>visibleComponent: {{visibleComponent}}</h2>
-    
   </div>
 </template>
 <script>
