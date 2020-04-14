@@ -45,7 +45,7 @@ export default {
 			this.filter = event.target.value;
 			console.log('search', this.filter);	
 		},
-		// 
+		// filterList
 		filterList(list) {
 			console.log('filterList', list);
 			return list.filter(task => task.toLowerCase().includes(this.filter.toLowerCase()));

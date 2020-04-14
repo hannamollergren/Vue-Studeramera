@@ -54,6 +54,9 @@ export default {
         margin: 1em;
         max-width: 722px;
     }
+	h2{
+		line-height: 1.1em;
+	}
     .learn {
         font-size: 1.3em;
         max-width: 300px;
