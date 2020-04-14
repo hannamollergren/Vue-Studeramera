@@ -143,13 +143,13 @@ p{
 	background: #FFC5A1;
 	border-radius: 0 20px 20px 0; 
 	grid-column: 2/2;
-	padding: 5.3em 2em 2em 2em;
+	padding: 5.3em 2em 2em 1em;
 }
 .tasks{
 	padding: 0 0 1.2em;
 }
 .delete{
-	padding: 0.2em 0.5em 0.2em;
+	padding: 0.1em 0.5em 0.2em;
 	border-radius: 5px;
 	margin: 0 0.5em 0 0;
 

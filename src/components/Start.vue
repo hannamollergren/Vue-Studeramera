@@ -24,7 +24,7 @@ export default {
   methods: {
     saveName() {
 		localStorage.setItem('user', JSON.stringify(this.name)); 
-    	console.log("Nu är namnet sparat");
+		console.log("Nu är namnet sparat");
     
 		console.log('start comp nextButton');
 		this.visibleComponent = 'welcome';
