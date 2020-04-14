@@ -1,10 +1,12 @@
 <template>
-  <div class="start-class">
-    <h1>StuderaMera</h1>
+  <div class="wrapper">
+
+   <img src="../assets/start-pic.png" alt="">
+
     <input type="text" placeholder="Hej, vem är du?" v-model="name" key="name" />
-
-	<img src="../assets/studeramera-button.png" alt="button" height="70px" class='next' @click="saveName">
-
+	
+    <img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="saveName">
+	
     <br />
     <br />
   </div>
@@ -14,14 +16,21 @@
 export default {
   data() {
     return {
-		name: '',
+    name: '',
+    visibleComponent: ''
 	};
   },
 
   methods: {
     saveName() {
 		localStorage.setItem("user", JSON.stringify(this.name)); 
-		console.log("Nu är namnet sparat");
+    console.log("Nu är namnet sparat");
+    
+    console.log('start comp nextButton');
+    this.visibleComponent = 'welcome';
+    console.log('start comp visablecomponent', this.visibleComponent);
+    this.$emit('click', this.visibleComponent)
+
 	}
   }
 };
@@ -30,25 +39,25 @@ export default {
 
 <style scoped>
 
-.start-class {
+.wrapper {
   text-align: center;
+  display:block;
+ 
+}
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+input {
+  border: 1px solid #89c8c1;
+  margin-top: 2.5em;
+
 }
 
-/* height: 88px;
-	width: 88px; */
-/* .button-style {
-  
+.button-style {
+  margin-top: 1.2em;
 
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-decoration: none;
-  outline: none;
-} */
+}
 
-
-.next{
-    margin: 0 0 0 4em;
-    align-self: center;
-    }
 </style>

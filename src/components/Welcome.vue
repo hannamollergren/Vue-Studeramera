@@ -4,7 +4,9 @@
 		<h2>Välkommen {{user}}!</h2>
 
 
-
+		<div>
+		<img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="next">
+		</div>
 		<!-- <button class="button-style">
 			<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<circle cx="44" cy="44" r="44" fill="#89C8C1"/>
@@ -27,7 +29,17 @@ export default {
 
 	data: () => ({
 		user: '',
+		visibleComponent: '',
 	}),
+
+	methods: {
+		next(){
+		console.log('start comp nextButton');
+		this.visibleComponent = 'allTasks';
+		console.log('welcome comp visablecomponent', this.visibleComponent);
+		this.$emit('click', this.visibleComponent)
+		}
+		},
 	
 
 	mounted(){

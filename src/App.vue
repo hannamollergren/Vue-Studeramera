@@ -1,18 +1,17 @@
 <template>
-  <div>
-
-    <Header/>
-    <Start/>
-    <Welcome/>
-    <AllTasks/>
-    <Timer/>
-    <ShowTask/>
-
+  <div id="app">
+    <Header />
+    <Start v-if="visibleComponent == 'start'" @click="fromStart"/>
+    <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
+    <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
+    <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
+    <!-- Todo ShowTask -> Start  -->
+    <ShowTask v-if="visibleComponent == 'showtask'"/>
+    
+    <h2>visibleComponent: {{visibleComponent}}</h2>
+    
   </div>
-  
-
 </template>
-
 <script>
 import Header from "./components/Header.vue";
 import Start from "./components/Start.vue";
@@ -20,10 +19,13 @@ import Welcome from "./components/Welcome.vue";
 import AllTasks from "./components/AllTasks.vue";
 import Timer from "./components/Timer.vue";
 import ShowTask from "./components/ShowTask.vue";
-
 export default {
   name: "App",
-
+  data() {
+    return{
+    visibleComponent: 'start',
+    };
+  },  
   components: {
     Header,
     Start,
@@ -31,27 +33,41 @@ export default {
     AllTasks,
     Timer,
     ShowTask
-  }
+  },
+  methods:{
+    fromStart(value){
+        console.log('fromStart', value);
+        this.visibleComponent = value;
+    },
+    fromWelcome(value){
+        console.log('fromWelcome', value);
+        this.visibleComponent = value;
+    },
+    fromAllTasks(value){
+        console.log('fromAlltasks', value);
+        this.visibleComponent = value;
+    },
+    fromTimer(value){
+        console.log('fromTimer', value);
+        this.visibleComponent = value;
+    },
+}
 };
 </script>
-
 <style>
-@import url("https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap");
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap');
+*{
+box-sizing: border-box;
+padding: 0;
+margin: 0;
 }
-
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-body {
-  background-color: #fcf9ea;
+body{
+    background-color: #FCF9EA;
 }
-
 h1,
 h2,
 h3 {
@@ -66,27 +82,28 @@ p {
 /* Buttons */
 button {
   font-family: Roboto, sans-serif;
-  padding: 0.8em 1.3em 0.8em;
+  padding: 0.8em 1.3em 0.8em; 
   background-color: #89c8c1;
   color: white;
   border-radius: 46px;
   border: none;
-  transition: 0.5s;
   cursor: pointer;
+  font-size: 0.9em;
 }
-
 button:hover {
   background-color: #6c9b95;
+  transition: 0.5s;
 }
-
+button:focus {outline:0;}
 /* Input */
-input[type="text"] {
-  padding: 0.7em;
+input[type=text] {
+  padding: 0.8em;
   border-radius: 10px;
-  border: 2px solid #89c8c1;
   box-sizing: border-box;
+  font-size: 0.9em;
+  
 }
 ::placeholder {
-  color: lightgrey;
+color: lightgrey;
 }
 </style>
