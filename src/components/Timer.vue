@@ -15,15 +15,17 @@ export default {
   name: 'Timer',
   data() {
     return {
-      display: {},
-      intervalId:null
+		display: {},
+		intervalId:null,
+		visibleComponent: '',
     };
   },
   methods:{
 startTimer() {
 
     // ange timern i sek
-    let duration =60*25;
+	let duration = 60*25;
+	
     // initialisera timer i minuter och sekunder
     let timer = duration, 
         minutes, 
@@ -49,8 +51,9 @@ startTimer() {
         // minska timer värdet, om värdet är mindre än noll är timern stoppad. Då emittas timeup eventet.
         if (--timer < 0) {
             // stoppa tidsintervallet
-            clearInterval(this.intervalId);
-            this.$emit("timeup")
+			clearInterval(this.intervalId);
+			this.visibleComponent = 'showtask'
+            this.$emit("click", this.visibleComponent)
             timer = duration;
             
         }

@@ -43,9 +43,12 @@ export default {
 	
 
 	mounted(){
-		this.user = this.getName()		
-		console.log('Värdet av name är', this.user)
-
+		if(this.getName() == null){
+			this.user = 'Stranger';
+		}
+		else{
+			this.user = this.getName();
+		}
 	}
 	
 }

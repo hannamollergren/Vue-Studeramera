@@ -12,7 +12,7 @@
 				</div>
 				<div class="item-right">
 					<div v-for="task in tasks" :key="task">
-						<p class="tasks">- {{ task }}<button class="delete" @click="deleteButton(task)">x</button></p>
+						<p class="tasks"><button class="delete" @click="deleteButton(task)">x</button> {{ task }}</p>
 					</div>
 				</div>
 				<div class="flex">
@@ -55,30 +55,27 @@ export default {
 			this.inputAdd = event.target.value;
 			//! TÖM INPUT
 		},
-		// Pusha & Spara aktivietet
+		// Pushar aktivitet till lista
 		saveButton(){
 			let add = this.inputAdd.charAt(0).toUpperCase() + this.inputAdd.slice(1);
 			this.tasks.unshift(add);
-			localStorage.setItem('tasks', JSON.stringify(this.tasks))
-
+			this.setTasks();
 		},
+		// Delete knapp
 		deleteButton(x){
 			console.log('deleteButton funkar');
 			this.tasks = this.tasks.filter(task => task != x)
 			console.log("delteButton", this.tasks);
-			localStorage.setItem('tasks', JSON.stringify(this.tasks))
+			this.setTasks();
 		},
-		/* removeEducation(education) {
-			this.profile.education = this.profile.education.filter(
-				edu => edu != education
-			); */
 		// Nästa sida
 		nextButton(){
 			this.visibleComponent = 'timer';
 			console.log('allTasks comp visablecomponent', this.visibleComponent);
-			this.$emit('click', this.visibleComponent);
-			localStorage.setItem('tasks', JSON.stringify(this.tasks))
-		}
+			this.$emit('click', this.visibleComponent)
+			this.setTasks();
+			
+		},		
 	},
 	computed: {
 		addIsValid(){
@@ -106,7 +103,7 @@ export default {
 		}
 		else{
 			this.tasks = this.getAddedTasks();
-			console.log('else getTasksFromLS', this.tasks);
+			console.log('else getAddedTasks', this.tasks);
 		}
 	}
 }
@@ -146,15 +143,16 @@ p{
 	background: #FFC5A1;
 	border-radius: 0 20px 20px 0; 
 	grid-column: 2/2;
-	padding: 5.3em 1em 2em;
+	padding: 5.3em 2em 2em 2em;
 }
 .tasks{
 	padding: 0 0 1.2em;
 }
-/* //! */
 .delete{
-	padding: 0;
-	border-radius: 0;
+	padding: 0.2em 0.5em 0.2em;
+	border-radius: 5px;
+	margin: 0 0.5em 0 0;
+
 
 }
 input{

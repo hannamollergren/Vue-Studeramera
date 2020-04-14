@@ -23,13 +23,13 @@ export default {
 
   methods: {
     saveName() {
-		localStorage.setItem("user", JSON.stringify(this.name)); 
-    console.log("Nu är namnet sparat");
+		localStorage.setItem('user', JSON.stringify(this.name)); 
+    	console.log("Nu är namnet sparat");
     
-    console.log('start comp nextButton');
-    this.visibleComponent = 'welcome';
-    console.log('start comp visablecomponent', this.visibleComponent);
-    this.$emit('click', this.visibleComponent)
+		console.log('start comp nextButton');
+		this.visibleComponent = 'welcome';
+		console.log('start comp visablecomponent', this.visibleComponent);
+		this.$emit('click', this.visibleComponent)
 
 	}
   }
