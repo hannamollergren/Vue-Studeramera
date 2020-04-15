@@ -113,12 +113,12 @@ button:hover {
 @media only screen and (max-width: 600px){
 .button-start{
 	display: block;
-	max-width: 10em;
-	margin: 0 2em 0 2em;
+	width: 80%;
+	margin: 0 2em 1em 2em;
 }
 .button-reset{
 	display: block;
-	max-width: 10em;
+	width: 80%;
 	margin: 0 2em 0 2em;
 
 }
