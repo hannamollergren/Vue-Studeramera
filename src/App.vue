@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header v-if='visibleHeader'/>
     <Start v-if="visibleComponent == 'start'" @click="fromStart"/>
     <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
     <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
@@ -20,6 +20,7 @@ export default {
   data() {
     return{
     visibleComponent: 'start',
+    visibleHeader: Boolean(false)
     };
   },  
   components: {
@@ -31,20 +32,18 @@ export default {
     ShowTask
   },
   methods:{
-	fromStart(value){
-		console.log('fromStart', value);
+	fromStart(value, event){
 		this.visibleComponent = value;
+		this.visibleHeader = event
+
 	},
 	fromWelcome(value){
-		console.log('fromWelcome', value);
 		this.visibleComponent = value;
 	},
 	fromAllTasks(value){
-		console.log('fromAlltasks', value);
 		this.visibleComponent = value;
 	},
 	fromTimer(value){
-		console.log('fromTimer', value);
 		this.visibleComponent = value;
   },
   fromShowTask(value){

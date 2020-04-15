@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2 class="logo">Studera mera</h2>
+    <h2 class="logo">StuderaMera</h2>
 	<div class="logo-mobile">S</div>
   </header>
 </template>
