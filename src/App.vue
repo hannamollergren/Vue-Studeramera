@@ -5,12 +5,7 @@
     <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
     <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
     <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
-<<<<<<< HEAD
-    <!-- Todo ShowTask -> Start  -->
-    <ShowTask v-if="visibleComponent == 'showtask'"/>
-=======
     <ShowTask v-if="visibleComponent == 'showtask'" @click="fromShowTask"/>
->>>>>>> Hanna
   </div>
 </template>
 <script>
@@ -37,25 +32,6 @@ export default {
     ShowTask
   },
   methods:{
-<<<<<<< HEAD
-    fromStart(value, event){
-        console.log('fromStart', value);
-        this.visibleComponent = value;
-        this.visibleHeader = event;
-    },
-    fromWelcome(value){
-        console.log('fromWelcome', value);
-        this.visibleComponent = value;
-    },
-    fromAllTasks(value){
-        console.log('fromAlltasks', value);
-        this.visibleComponent = value;
-    },
-    fromTimer(value){
-        console.log('fromTimer', value);
-        this.visibleComponent = value;
-    },
-=======
 	fromStart(value, event){
 		this.visibleComponent = value;
 		this.visibleHeader = event
@@ -73,7 +49,6 @@ export default {
   fromShowTask(value){
     this.visibleComponent = value;
   }
->>>>>>> Hanna
 }
 };
 </script>
