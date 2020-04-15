@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import nameMixin from '../nameMixin'
+import nameMixin from '../nameMixin.js'
 
 export default {
   mixins: [nameMixin],

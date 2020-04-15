@@ -13,7 +13,7 @@
 </template>
 <script>
 import TaskService from "../shared/TaskService.js";
-import nameMixin from '../nameMixin';
+import nameMixin from '../nameMixin.js';
 export default {
     mixins: [TaskService, nameMixin],
     data: () => ({
@@ -34,7 +34,6 @@ export default {
             this.visibleComponent = "welcome";
             this.$emit("click", this.visibleComponent)
         }
-        console.log("button fungerar!");
         }
     },
     computed: {
@@ -43,7 +42,6 @@ export default {
         console.log('getTasks från service', this.getAddedTasks());
         this.tasks = this.getAddedTasks();
         this.user = this.getName();
-        console.log("detta är user: ",this.user);
     },
 }
 </script>
