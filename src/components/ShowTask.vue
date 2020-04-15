@@ -62,7 +62,7 @@ export default {
         margin: 1.5em;
     }
     .approval {
-        font-size: 1.5em;
+        font-size: 1.2em;
     }
     .pastime {
         font-size: 3.8em;
