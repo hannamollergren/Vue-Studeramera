@@ -18,15 +18,12 @@ export default {
 	}),
 	methods: {
 		next(){
-		console.log('start comp nextButton');
 		this.visibleComponent = 'allTasks';
-		console.log('welcome comp visablecomponent', this.visibleComponent);
 		this.$emit('click', this.visibleComponent)
 		}
 	},
 	mounted(){
 		this.user = this.getName()
-		console.log('Värdet av user är', this.user)
 	}	
 }
 </script>

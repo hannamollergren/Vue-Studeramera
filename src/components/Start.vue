@@ -27,7 +27,6 @@ export default {
   },
   mounted(){
     this.name = this.getName(); //Hämtar tillbaka namn från mixin så att input-fältet innehåller ett namn
-
   }
 };
 
