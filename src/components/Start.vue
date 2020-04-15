@@ -5,7 +5,7 @@
 
     <input type="text" placeholder="Hej, vem är du?" v-model="name" key="name" />
 	
-    <img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="saveName">
+    <img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="saveAndNext">
 	
     <br />
     <br />
@@ -13,25 +13,29 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-    name: '',
-    visibleComponent: ''
-	};
-  },
+import nameMixin from '../nameMixin'
 
+export default {
+  mixins: [nameMixin],
+
+	data: () => ({
+		name: '' ,
+		visibleComponent: '',
+  }),
+  
   methods: {
-    saveName() {
-		localStorage.setItem("user", JSON.stringify(this.name)); 
-    console.log("Nu är namnet sparat");
-    
-    console.log('start comp nextButton');
+    saveAndNext() {
+    this.saveName(this.name)  //Sparar namnet till mixin
+
     this.visibleComponent = 'welcome';
     console.log('start comp visablecomponent', this.visibleComponent);
     this.$emit('click', this.visibleComponent)
 
 	}
+  },
+  mounted(){
+    this.name = this.getName(); //Hämtar tillbaka namn från mixin så att input-fältet innehåller ett namn
+
   }
 };
 
@@ -50,7 +54,7 @@ img{
   margin-right: auto;
 }
 input {
-  border: 1px solid #89c8c1;
+  border: 2px solid #89c8c1;
   margin-top: 2.5em;
 
 }

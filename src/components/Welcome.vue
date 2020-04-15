@@ -1,22 +1,14 @@
 <template >
 	<div class="class-welcome">
 
-		<h2>Välkommen {{user}}!</h2>
+		<p>Välkommen {{user}}!</p>
 
 
 		<div>
 		<img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="next">
 		</div>
-		<!-- <button class="button-style">
-			<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<circle cx="44" cy="44" r="44" fill="#89C8C1"/>
-			<rect x="29" y="23.364" width="9" height="38.1514" rx="4" transform="rotate(-45 29 23.364)" fill="white"/>
-			<rect x="36.2698" y="70.8142" width="9" height="36.67" rx="4" transform="rotate(-136.08 36.2698 70.8142)" fill="white"/>
-			</svg>
-		</button> -->
 
-		<!-- <img src="../assets/studeramera.png" alt="next-button"> -->
-
+		<br><br><br>
 	</div>
 
 </template>
@@ -28,7 +20,7 @@ export default {
 	mixins: [nameMixin],
 
 	data: () => ({
-		user: '',
+		user: '' ,
 		visibleComponent: '',
 	}),
 
@@ -39,12 +31,16 @@ export default {
 		console.log('welcome comp visablecomponent', this.visibleComponent);
 		this.$emit('click', this.visibleComponent)
 		}
-		},
+	},
 	
 
 	mounted(){
-		this.user = this.getName()		
-		console.log('Värdet av name är', this.user)
+
+		this.user = this.getName()
+		
+		console.log('Värdet av user är', this.user)
+
+	
 
 	}
 	
@@ -52,15 +48,16 @@ export default {
 </script>
 
 <style scoped>
+p{
+	margin-top: 2em;
+	font-size: 2.5em;
+}
 .class-welcome{
 	text-align: center;
+	display:block;
 }
 .button-style{
-	border: none;
-	background: none;
-	cursor: pointer;
-	text-decoration: none;
-	outline: none;
+	margin-top: 2em;
 }
 
 
