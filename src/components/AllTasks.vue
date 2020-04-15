@@ -6,19 +6,23 @@
 		<div class="container">
 				<div class="item-left">
 					<h2 class="title">Aktiviteter att se fram emot</h2>
-					<p class="undertitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa aut qui quia dolor vel nisi maiores praesentium! Saepe, magnam dolorem eos delectus earum atque aliquid. Minus autem tempora dolor error.</p>
-					<input type="text" placeholder="Skriv aktivitet här..." @keyup="addTask" @blur.once="addIsTouched = true"><button  class="save" @click="saveButton" :disabled="!formIsValid">Spara</button>
+					<p class="undertitle">Denna sidan tillåter användaren en överblick av kommande aktiviteter. Det finns möjlighet att sortera, söka, lägga till och ta bort aktivitet. Användaren får möjlighet att anpassa aktiviteter utifrån sin egna situation.</p>
+					<input type="text" placeholder="Skriv aktivitet här..." v-model="inputAdd" @blur.once="addIsTouched = true"><button  class="save" @click="saveButton" :disabled="!formIsValid">Spara</button>
 					<span v-show="!addIsValid && addIsTouched" class="error">Måste innehålla minst 5 tecken</span>
 				</div>
 				<div class="item-right">
 					<div v-for="task in tasks" :key="task">
-						<p class="tasks"><button class="delete" @click="deleteButton(task)">x</button> {{ task }}</p>
+						<p class="tasks">
+							<button class="delete" @click="deleteButton(task)">x
+							</button> 
+							{{ task }}
+						</p>
 					</div>
 				</div>
 				<div class="flex">
 					<img src="../assets/Next.png" alt="Next" height="60px" class="next" @click="nextButton">
 				</div>
-		</div>	
+		</div>
 	</div>
 </template>
 
@@ -29,53 +33,47 @@ export default {
 	data: () => ({
 		sort: 'Sortera A-Ö',
 		tasks: [],
-		filter: String,
-		inputAdd: String,
-		copy: [],
+		filter: '',
+		inputAdd: '',
 		addIsTouched: Boolean (false),
 		visibleComponent: ''
 	}),
 	methods: {
-		// Sortera A-Ö
+		// Sortera
 		sortButton(){
 			this.tasks.sort();
 		},
-		// Sök i listan
+		// Sök 
 		search(event){
 			this.filter = event.target.value;
-			console.log('search', this.filter);	
+			this.filterList();
 		},
-		// filterList
-		filterList(list) {
-			console.log('filterList', list);
-			return list.filter(task => task.toLowerCase().includes(this.filter.toLowerCase()));
+		filterList() {
+			let list = this.tasks;
+			console.log('filterList list', list);
+
+			this.tasks = list.filter(task => task.toLowerCase().includes(this.filter.toLowerCase()));
+			console.log("filterList filter", this.tasks);
 		},
-		// Addera ny aktivitet
-		addTask(event){
-			this.inputAdd = event.target.value;
-			//! TÖM INPUT v-model
-		},
-		// Pushar aktivitet till lista
+		// Addera 
 		saveButton(){
 			let add = this.inputAdd.charAt(0).toUpperCase() + this.inputAdd.slice(1);
 			this.tasks.unshift(add);
-			this.setTasks();
+			this.setTasks();	
+			
 			this.inputAdd = '';
+			this.addIsTouched = false;
 		},
-		// Delete knapp
+		// Delete 
 		deleteButton(x){
-			console.log('deleteButton funkar');
 			this.tasks = this.tasks.filter(task => task != x)
-			console.log("delteButton", this.tasks);
 			this.setTasks();
 		},
-		// Nästa sida
+		// Nästa 
 		nextButton(){
 			this.visibleComponent = 'timer';
-			console.log('allTasks comp visablecomponent', this.visibleComponent);
 			this.$emit('click', this.visibleComponent)
 			this.setTasks();
-			
 		},		
 	},
 	computed: {
@@ -85,26 +83,13 @@ export default {
 		formIsValid(){
 			return this.addIsValid;
 		},
-		filteredTasks(){
-			console.log('filtredTasks körs');
-			let copy = [ ...this.tasks ];
-			console.log('filtredTasks', copy);
-			if( this.filter == '' ) {
-				// no filter
-			} else {
-				copy = this.filtreraList(copy);
-			}
-			return copy;
-		}
 	},
 	mounted(){
 		if(this.getAddedTasks() == null){
-			console.log('if getTasks från service', this.getTasks());
 			this.tasks = this.getTasks();
 		}
 		else{
 			this.tasks = this.getAddedTasks();
-			console.log('else getAddedTasks', this.tasks);
 		}
 	}
 }
@@ -177,10 +162,10 @@ button:disabled{
 	display: flex;
 }
 .next{ 
-	margin: 0em 0 0 4em;
+	margin: 0em 0 0 3em;
 	/* align-self: center; */
 	position: fixed;
-	top: 60%;
+	top: 50%;
 	cursor: pointer;
 }
 .error{

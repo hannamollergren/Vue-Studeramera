@@ -33,19 +33,15 @@ export default {
   },
   methods:{
 	fromStart(value){
-		console.log('fromStart', value);
 		this.visibleComponent = value;
 	},
 	fromWelcome(value){
-		console.log('fromWelcome', value);
 		this.visibleComponent = value;
 	},
 	fromAllTasks(value){
-		console.log('fromAlltasks', value);
 		this.visibleComponent = value;
 	},
 	fromTimer(value){
-		console.log('fromTimer', value);
 		this.visibleComponent = value;
 	},
 }
