@@ -62,6 +62,7 @@ input {
 
 .button-style {
   margin-top: 1.2em;
+  cursor: pointer;
 
 }
 .start-enter {

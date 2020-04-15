@@ -43,6 +43,7 @@ p{
 }
 .button-style{
 	margin-top: 1.2em;
+	cursor: pointer;
 }
 /* .welcome-enter {
 	opacity: 0.3;
