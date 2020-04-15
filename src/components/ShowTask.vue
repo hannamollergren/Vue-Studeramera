@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <!-- <div class="banner"><p>Studera Mera</p></div> -->
+        <div class="logo">S</div>
         <div class="approval">
             <p>Bra jobbat {{user}}!</p>
         </div>
@@ -69,6 +70,22 @@ export default {
         font-size: 1.3em;
         font-weight: bolder;
         margin: 2em;
+    }
+    .logo {
+        background: #FFFFFF;
+        border-radius: 50px;
+        height: 79px;
+        justify-self: center;
+        align-self: center;
+        width: 79px;
+
+        font-family: Viga;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 58px;
+        line-height: 80px;
+
+color: #F8A978;
     }
     .approval {
         font-size: 1.1em;
