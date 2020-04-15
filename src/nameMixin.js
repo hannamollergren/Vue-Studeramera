@@ -6,7 +6,6 @@ function saveName() {
 function getName() {
     {
     let name = JSON.parse(localStorage.getItem('name'));
-    console.log('Nu körs getName-funktionen, värdet av name är: ', name)
     return name
     }
 

@@ -45,7 +45,6 @@ export default {
 		.then((res) => {
 			this.quote = "\""+res.data.content+"\"";
 		})
-        .catch((err) => console.log(err));
 	},
     mounted(){
         this.tasks = this.getAddedTasks();
