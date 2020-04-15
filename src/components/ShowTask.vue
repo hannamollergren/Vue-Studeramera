@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="approval">
-            <p>Bra jobbat {{user}}!</p>
+            <p>{{ quote }}</p>
         </div>
         <div class="pastime">
             <div>
@@ -14,6 +14,7 @@
 <script>
 import TaskService from "../shared/TaskService.js";
 import nameMixin from '../nameMixin';
+import axios from 'axios'
 export default {
     mixins: [TaskService, nameMixin],
     data: () => ({
@@ -22,7 +23,8 @@ export default {
         inputSearch: String,
         inputAdd: String,
         copy: [],
-        visibleComponent: "",
+		visibleComponent: "",
+		quote:""
     }),
     methods: {
 		HeartButton(){
@@ -34,16 +36,20 @@ export default {
             this.visibleComponent = "welcome";
             this.$emit("click", this.visibleComponent)
         }
-        console.log("button fungerar!");
         }
     },
     computed: {
-    },
+	},
+	created(){
+		axios.get("https://api.quotable.io/random")
+		.then((res) => {
+			this.quote = "\""+res.data.content+"\"";
+		})
+        .catch((err) => console.log(err));
+	},
     mounted(){
-        console.log('getTasks från service', this.getAddedTasks());
         this.tasks = this.getAddedTasks();
         this.user = this.getName();
-        console.log("detta är user: ",this.user);
     },
 }
 </script>
@@ -62,7 +68,8 @@ export default {
         margin: 1.5em;
     }
     .approval {
-        font-size: 1.2em;
+		font-size: 1.2em;
+		margin: 0 3em 0;
     }
     .pastime {
         font-size: 3.8em;
