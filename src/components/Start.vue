@@ -1,14 +1,15 @@
 <template>
   <div class="wrapper">
+    <transition name="start" appear>
+      <h1>StuderaMera</h1>
+    </transition>
+    
 
-   <img src="../assets/start-pic.png" alt="">
-
-    <input type="text" placeholder="Hej, vem är du?" v-model="name" key="name" />
+  <img src="../assets/start-pic.png" alt="">
+  <input type="text" placeholder="Hej, vem är du?" v-model="name" key="name" />
 	
-    <img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="saveAndNext">
-	
-    <br />
-    <br />
+  <img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="saveAndNext">
+  <br><br>
   </div>
 </template>
 
@@ -42,6 +43,10 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin-bottom: 0.5em;
+  font-size: 2.5em;
+}
 
 .wrapper {
   text-align: center;
@@ -62,6 +67,12 @@ input {
 .button-style {
   margin-top: 1.2em;
 
+}
+.start-enter {
+  opacity: 0;  
+}
+.start-enter-to {
+  transition: opacity 3s;
 }
 
 </style>

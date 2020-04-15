@@ -1,9 +1,9 @@
 <template >
 	<div class="class-welcome">
-
-		<p>Välkommen {{user}}!</p>
-
-
+		<transition name="welcome" appear>
+			<p>Välkommen {{user}}!</p>
+		</transition>
+		
 		<div>
 		<img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="next">
 		</div>
@@ -50,7 +50,7 @@ export default {
 <style scoped>
 p{
 	margin-top: 2em;
-	font-size: 2.5em;
+	font-size: 1.5em;
 }
 .class-welcome{
 	text-align: center;
@@ -59,6 +59,13 @@ p{
 .button-style{
 	margin-top: 2em;
 }
+.welcome-enter {
+	opacity: 0.3;
+}
+.welcome-enter-to {
+	transition: opacity 1.5s;
+}
+
 
 
 </style>
