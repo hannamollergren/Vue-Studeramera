@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        <!-- <div class="banner"><p>Studera Mera</p></div> -->
         <div class="approval">
             <p>Bra jobbat {{user}}!</p>
         </div>
@@ -9,7 +8,7 @@
                 <h2 class="tasks">{{tasks[Math.floor(Math.random() * tasks.length)]}}.</h2>
             </div>
         </div>
-        <button class="learn">Studera Mera? ❤️</button>
+        <button class="learn" @click="HeartButton">Fortsätt Studera ❤️</button>
     </div>
 </template>
 <script>
@@ -23,11 +22,23 @@ export default {
         inputSearch: String,
         inputAdd: String,
         copy: [],
+        visibleComponent: "",
     }),
-/*  methods: {
+    methods: {
+		HeartButton(){
+            if(this.user == null){
+            this.visibleComponent = "start";
+            this.$emit("click", this.visibleComponent)
+        }
+            else{
+            this.visibleComponent = "welcome";
+            this.$emit("click", this.visibleComponent)
+        }
+        console.log("button fungerar!");
+        }
     },
     computed: {
-    }, */
+    },
     mounted(){
         console.log('getTasks från service', this.getAddedTasks());
         this.tasks = this.getAddedTasks();

@@ -232,7 +232,7 @@ button:disabled{
 .next{
 	margin: auto;
 	position: relative;
-	top: 1em;
+	top: 1.2em;
 }
 .sort{
 	margin: 0 0 0 2em;
