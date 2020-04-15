@@ -114,7 +114,7 @@ export default {
 .container{
 	margin: 1em 3em 3em 3em;
 	display: grid;
-	grid-template-columns: 2fr 2fr 1fr;
+	grid-template-columns: 4fr 4fr 1fr;
 }
 h2{
 	color: white;
@@ -169,7 +169,7 @@ button:disabled{
 	display: flex;
 }
 .next{ 
-	margin: 0em 0 0 3em;
+	margin: 0em 0 0 1em;
 	/* align-self: center; */
 	position: fixed;
 	top: 50%;

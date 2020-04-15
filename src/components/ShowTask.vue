@@ -8,7 +8,7 @@
                 <h2 class="tasks">{{tasks[Math.floor(Math.random() * tasks.length)]}}.</h2>
             </div>
         </div>
-        <button class="learn" @click="HeartButton">Fortsätt Studera ❤️</button>
+        <button class="learn" @click="HeartButton">Studera mer ❤️</button>
     </div>
 </template>
 <script>
@@ -73,7 +73,7 @@ export default {
 		line-height: 1.1em;
 	}
     .learn {
-        font-size: 1.3em;
+        font-size: 1.2em;
         max-width: 300px;
         margin: 1em 0 5em 0;
     }

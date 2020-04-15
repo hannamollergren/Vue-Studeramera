@@ -70,7 +70,6 @@ resetTimer(){
 </script>
 <style scoped>
 .container{
-    width: 100%;
     background-color: #FCF9EA;
     text-align: center;
     color: #F8A978;
@@ -94,7 +93,7 @@ resetTimer(){
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1.2em;
 }
 .button-reset {
   border-radius: 25px;
@@ -106,9 +105,22 @@ resetTimer(){
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px
+  font-size: 1.2em;
 }
 button:hover {
   background-color: #6c9b95;
+}
+@media only screen and (max-width: 600px){
+.button-start{
+	display: block;
+	max-width: 10em;
+	margin: 0 2em 0 2em;
+}
+.button-reset{
+	display: block;
+	max-width: 10em;
+	margin: 0 2em 0 2em;
+
+}
 }
 </style>
