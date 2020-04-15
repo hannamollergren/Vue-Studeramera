@@ -8,6 +8,9 @@
 </script>
 
 <style scoped>
+header{
+	margin-bottom: 3em;
+}
 .logo {
 	color: #f8a978;
 	padding: 1em;

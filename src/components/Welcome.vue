@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import nameMixin from '../nameMixin'
+import nameMixin from '../shared/nameMixin'
 
 export default {
 	mixins: [nameMixin],
@@ -61,12 +61,12 @@ p{
 .button-style{
 	margin-top: 1.2em;
 }
-.welcome-enter {
+/* .welcome-enter {
 	opacity: 0.3;
 }
 .welcome-enter-to {
 	transition: opacity 1.5s;
-}
+} */
 
 
 

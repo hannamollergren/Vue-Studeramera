@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import nameMixin from '../nameMixin'
+import nameMixin from '../shared/nameMixin'
 
 export default {
   mixins: [nameMixin],
@@ -30,7 +30,6 @@ export default {
     this.saveName(this.name)  //Sparar namnet till mixin
 
     this.visibleComponent = 'welcome';
-    console.log('start comp visablecomponent', this.visibleComponent);
     this.$emit('click', this.visibleComponent, this.visibleHeader)
 
 	}

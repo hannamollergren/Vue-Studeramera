@@ -7,8 +7,6 @@
     <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
     <!-- Todo ShowTask -> Start  -->
     <ShowTask v-if="visibleComponent == 'showtask'"/>
-    
-    
   </div>
 </template>
 <script>
@@ -55,6 +53,7 @@ export default {
 }
 };
 </script>
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto|Viga&display=swap');
 *{
@@ -102,7 +101,6 @@ input[type=text] {
   border-radius: 10px;
   box-sizing: border-box;
   font-size: 0.9em;
-  
 }
 ::placeholder {
 color: lightgrey;
