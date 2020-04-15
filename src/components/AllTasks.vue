@@ -50,10 +50,13 @@ export default {
 		},
 		filterList() {
 			let list = this.tasks;
-			console.log('filterList list', list);
-
-			this.tasks = list.filter(task => task.toLowerCase().includes(this.filter.toLowerCase()));
-			console.log("filterList filter", this.tasks);
+			if(this.filter == '')
+			{
+				this.getTaskList();
+			}
+			else{
+				this.tasks = list.filter(task => task.toLowerCase().includes(this.filter.toLowerCase()));
+			}
 		},
 		// Addera 
 		saveButton(){
@@ -74,7 +77,16 @@ export default {
 			this.visibleComponent = 'timer';
 			this.$emit('click', this.visibleComponent)
 			this.setTasks();
-		},		
+		},
+		// Hämta tasks - ls, mixins
+		getTaskList(){
+			if(this.getAddedTasks() == null){
+				this.tasks = this.getTasks();
+			}
+			else{
+				this.tasks = this.getAddedTasks();
+			}
+		}	
 	},
 	computed: {
 		addIsValid(){
@@ -82,15 +94,10 @@ export default {
 		},
 		formIsValid(){
 			return this.addIsValid;
-		},
+		}
 	},
 	mounted(){
-		if(this.getAddedTasks() == null){
-			this.tasks = this.getTasks();
-		}
-		else{
-			this.tasks = this.getAddedTasks();
-		}
+		this.getTaskList();
 	}
 }
 </script>
