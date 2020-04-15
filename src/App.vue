@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header v-if='visibleHeader'/>
     <Start v-if="visibleComponent == 'start'" @click="fromStart"/>
     <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
     <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
@@ -8,7 +8,6 @@
     <!-- Todo ShowTask -> Start  -->
     <ShowTask v-if="visibleComponent == 'showtask'"/>
     
-    <h2>visibleComponent: {{visibleComponent}}</h2>
     
   </div>
 </template>
@@ -24,6 +23,7 @@ export default {
   data() {
     return{
     visibleComponent: 'start',
+    visibleHeader: Boolean(false)
     };
   },  
   components: {
@@ -35,9 +35,10 @@ export default {
     ShowTask
   },
   methods:{
-    fromStart(value){
+    fromStart(value, event){
         console.log('fromStart', value);
         this.visibleComponent = value;
+        this.visibleHeader = event;
     },
     fromWelcome(value){
         console.log('fromWelcome', value);

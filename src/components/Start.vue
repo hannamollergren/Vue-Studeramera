@@ -21,7 +21,8 @@ export default {
 
 	data: () => ({
 		name: '' ,
-		visibleComponent: '',
+    visibleComponent: '',
+    visibleHeader: Boolean(true)
   }),
   
   methods: {
@@ -30,7 +31,7 @@ export default {
 
     this.visibleComponent = 'welcome';
     console.log('start comp visablecomponent', this.visibleComponent);
-    this.$emit('click', this.visibleComponent)
+    this.$emit('click', this.visibleComponent, this.visibleHeader)
 
 	}
   },
@@ -44,6 +45,7 @@ export default {
 
 <style scoped>
 h1 {
+  margin-top: 2em;
   margin-bottom: 0.5em;
   font-size: 2.5em;
 }

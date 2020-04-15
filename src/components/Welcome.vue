@@ -49,15 +49,17 @@ export default {
 
 <style scoped>
 p{
-	margin-top: 2em;
+	margin-top: 6em;
 	font-size: 1.5em;
+
 }
 .class-welcome{
 	text-align: center;
 	display:block;
+	
 }
 .button-style{
-	margin-top: 2em;
+	margin-top: 1.2em;
 }
 .welcome-enter {
 	opacity: 0.3;
