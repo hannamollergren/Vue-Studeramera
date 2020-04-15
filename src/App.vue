@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header/>
     <Start v-if="visibleComponent == 'start'" @click="fromStart"/>
     <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
     <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
@@ -20,7 +20,7 @@ export default {
   name: "App",
   data() {
     return{
-    visibleComponent: 'start',
+	visibleComponent: 'start',
     };
   },  
   components: {
