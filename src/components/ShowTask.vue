@@ -22,16 +22,19 @@ export default {
         inputSearch: String,
         inputAdd: String,
         copy: [],
-        visibleComponent: ''
+        visibleComponent: "",
     }),
     methods: {
 		HeartButton(){
-            this.$emit('click', this.visibleComponent)
-            if(this.user() == null){
+            if(this.user == null){
             this.visibleComponent = "start";
+            this.$emit("click", this.visibleComponent)
         }
-        else{
+            else{
             this.visibleComponent = "welcome";
+            this.$emit("click", this.visibleComponent)
+        }
+        console.log("button fungerar!");
         }
     },
     computed: {
@@ -42,7 +45,7 @@ export default {
         this.user = this.getName();
         console.log("detta är user: ",this.user);
     },
-}}
+}
 </script>
 <style scoped>
     .container {
