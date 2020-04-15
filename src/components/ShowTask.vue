@@ -3,6 +3,7 @@
         <div class="approval">
             <p>Bra jobbat {{user}}!</p>
         </div>
+        <div class="quote"><p>{{quote}}</p></div>
         <div class="pastime">
             <div>
                 <h2 class="tasks">{{tasks[Math.floor(Math.random() * tasks.length)]}}.</h2>
@@ -14,6 +15,7 @@
 <script>
 import TaskService from "../shared/TaskService.js";
 import nameMixin from '../nameMixin.js';
+import axios from 'axios';
 export default {
     mixins: [TaskService, nameMixin],
     data: () => ({
@@ -23,6 +25,7 @@ export default {
         inputAdd: String,
         copy: [],
         visibleComponent: "",
+        quote:""
     }),
     methods: {
 		HeartButton(){
@@ -36,8 +39,12 @@ export default {
         }
         }
     },
-    computed: {
-    },
+	created(){
+		axios.get("https://api.quotable.io/random")
+		.then((res) => {
+			this.quote = "\""+res.data.content+"\"";
+		})
+	},
     mounted(){
         console.log('getTasks från service', this.getAddedTasks());
         this.tasks = this.getAddedTasks();
@@ -53,6 +60,10 @@ export default {
         text-align: center;
         user-select: none;
     }
+    .quote {
+        margin: 1em;
+        max-width: 500px;
+    }
     .banner {
         align-self: flex-start;
         font-size: 1.7em;
@@ -60,7 +71,8 @@ export default {
         margin: 1.5em;
     }
     .approval {
-        font-size: 1.5em;
+		font-size: 1.2em;
+		margin: 0 0 0 0;
     }
     .pastime {
         font-size: 3.8em;
@@ -71,7 +83,7 @@ export default {
 		line-height: 1.1em;
 	}
     .learn {
-        font-size: 1.3em;
+        font-size: 1.2em;
         max-width: 300px;
         margin: 1em 0 5em 0;
     }
