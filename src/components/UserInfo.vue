@@ -15,7 +15,6 @@
 				<div class="flex">
 					<img src="https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k" alt="Next" height="60px" class="next" @click="nextButton">
 				</div>
-				{{userInfo}}
 		</div>
   </div>
 </template>

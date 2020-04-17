@@ -9,7 +9,6 @@
 			<input type="text" placeholder="E-mail adress" v-model="userInfo.email" key="email"><br>
 			<input type="text" placeholder="Pluggar till..." v-model="userInfo.study" key="study">
 		</form>
-		{{ userInfo }}
 		<img src='https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k' alt="button" height="60px" class='button-style' @click="saveAndNext">
   </div>
 </template>
