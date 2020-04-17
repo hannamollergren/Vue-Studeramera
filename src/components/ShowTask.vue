@@ -3,7 +3,6 @@
         <div class="approval">
             <p>{{ quote }}</p>
         </div>
-        <div class="quote"><p>{{quote}}</p></div>
         <div class="pastime">
             <div>
                 <h2 class="tasks">{{tasks[Math.floor(Math.random() * tasks.length)]}}.</h2>
