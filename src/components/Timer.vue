@@ -4,7 +4,7 @@
     <label id='time' class="timer"><h2>{{display}}</h2></label>
         <p class="timer-message">minuter kvar till rast</p>
     <!-- binder on click funktion för att starta och nollställa timer -->
-    <button v-on:click="startTimer" class="button-start">Start</button>
+    <button v-on:click="startTimer" class="button-start" :disabled=enableDisable>Start</button>
       <button v-on:click="resetTimer" class="button-reset">Nollställ</button>
   </div>
 </template>
@@ -16,13 +16,16 @@ export default {
 		display: {},
 		intervalId:null,
 		visibleComponent: '',
+		enableDisable: false,
     };
   },
   methods:{
 startTimer() {
     // ange timern i sek
 	/* let duration = 60*25; */
+	
 	let duration = 5;
+	this.enableDisable = true;
 	
     // initialisera timer i minuter och sekunder
     let timer = duration, 
@@ -59,7 +62,8 @@ resetTimer(){
     // nollställ tids intervallet
     clearInterval(this.intervalId);
     // sätter timern till en viss start tid
-    this.display = "25" + ":" + "00";
+	this.display = "25" + ":" + "00";
+	this.enableDisable = false;
 }
   },
   created(){
@@ -98,7 +102,7 @@ resetTimer(){
 .button-reset {
   border-radius: 25px;
   margin-right: 10px;
-  background-color: #CFCFCF; 
+  background-color: #89C8C1;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -109,6 +113,10 @@ resetTimer(){
 }
 button:hover {
   background-color: #6c9b95;
+}
+button:disabled{
+	background-color: lightgrey;
+	cursor: auto;
 }
 @media only screen and (max-width: 600px){
 .button-start{

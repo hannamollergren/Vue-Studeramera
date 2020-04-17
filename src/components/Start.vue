@@ -40,9 +40,6 @@ export default {
   
     this.visibleComponent = 'welcome';
     this.$emit('click', this.visibleComponent, this.visibleHeader)
-    },
-    submitForm() {
-      /* const this.formIsValid = this.nameIsValid && this.emailIsValid && this.studyIsValid */
     }
   },
   computed: {
@@ -64,10 +61,6 @@ export default {
 	formIsValid () {
 		return this.nameIsValid && this.emailIsValid && this.studyIsValid
 	}
-  },
-  mounted(){
-    //Hämtar tillbaka input-värden från mixin så att input-fälten inte är tomma
-	/* this.name = this.getName(); */
   }
 };
 </script>

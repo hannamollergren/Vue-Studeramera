@@ -13,7 +13,7 @@ header{
 	margin-bottom: 3em;
 }
 .logo {
-	color: #868483;
+	color: #f8a978;
 	padding: 1em;
 	margin: 0;
 }
