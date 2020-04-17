@@ -23,8 +23,8 @@ export default {
         inputSearch: String,
         inputAdd: String,
         copy: [],
-		visibleComponent: "",
-		quote:""
+        visibleComponent: "",
+        quote:""
     }),
     methods: {
 		HeartButton(){
@@ -60,6 +60,10 @@ export default {
         flex-direction: column;
         text-align: center;
         user-select: none;
+    }
+    .quote {
+        margin: 1em;
+        max-width: 500px;
     }
     .banner {
         align-self: flex-start;

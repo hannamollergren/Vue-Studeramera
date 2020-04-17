@@ -65,14 +65,7 @@ export default {
 		else{
 			this.userInfo = JSON.parse(localStorage.getItem('info'));
 			console.log('userinfo comp else', this.userInfo);
-		}
-		
-		
-
-		
-
-		
-		
+		}		
 	}
 }
 </script>

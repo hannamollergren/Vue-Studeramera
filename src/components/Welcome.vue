@@ -19,55 +19,55 @@
 <script>
 import nameMixin from '../nameMixin'
 export default {
-	mixins: [nameMixin],
-	data: () => ({
-		visibleComponent: '',
-		user: '',
-		userInfo: {
-			username: '',
-			email: '',
-			study: ''
-		}
-	}),
-	methods: {
-		userInfoButton(){
+    mixins: [nameMixin],
+    data: () => ({
+        visibleComponent: '',
+        user: '',
+        userInfo: {
+            username: '',
+            email: '',
+            study: ''
+        }
+    }),
+    methods: {
+        userInfoButton(){
             this.visibleComponent = 'userInfo'
             this.$emit('click', this.visibleComponent)
         },
-		backButton(){
-			this.visibleComponent = 'welcome';
-			this.$emit('click', this.visibleComponent)
-			this.saveInput(this.userInfo);
-		},
-		nextButton(){
-			this.visibleComponent = 'allTasks';
-			this.$emit('click', this.visibleComponent)
-			console.log('nextButton userinfo', this.userInfo);
-			this.saveInput(this.userInfo);
-		},
-		inputUserName(event) {
-			this.userInfo.name = event.target.innerText;
-		},
-		inputEmail(event){
-			this.userInfo.email = event.target.innerText;
-		},
-		inputSubject(event){
-			this.userInfo.study = event.target.innerText;
-		}
-	},
-	mounted(){
-		this.user = this.getName();
-		let test = JSON.parse(localStorage.getItem('info'));
-		console.log('userinfo comp mounted', test);
-		if(localStorage.getItem('info') == null)
-		{
-			console.log('I if sats. Finns inget i ls just nu')
-		}
-		else{
-			this.userInfo = JSON.parse(localStorage.getItem('info'));
-			console.log('userinfo comp else', this.userInfo);
-		}
-	}
+        backButton(){
+            this.visibleComponent = 'welcome';
+            this.$emit('click', this.visibleComponent)
+            this.saveInput(this.userInfo);
+        },
+        nextButton(){
+            this.visibleComponent = 'allTasks';
+            this.$emit('click', this.visibleComponent)
+            console.log('nextButton userinfo', this.userInfo);
+            this.saveInput(this.userInfo);
+        },
+        inputUserName(event) {
+            this.userInfo.name = event.target.innerText;
+        },
+        inputEmail(event){
+            this.userInfo.email = event.target.innerText;
+        },
+        inputSubject(event){
+            this.userInfo.study = event.target.innerText;
+        }
+    },
+    mounted(){
+        this.user = this.getName();
+        let test = JSON.parse(localStorage.getItem('info'));
+        console.log('userinfo comp mounted', test);
+        if(localStorage.getItem('info') == null)
+        {
+            console.log('I if sats. Finns inget i ls just nu')
+        }
+        else{
+            this.userInfo = JSON.parse(localStorage.getItem('info'));
+            console.log('userinfo comp else', this.userInfo);
+        }
+    }
 }
 </script>
 <style scoped>
@@ -94,28 +94,5 @@ p {
 }
 .welcome-enter-to {
     transition: opacity 1.5s;
-} */
-</style>
-
-
-<style scoped>
-p{
-	margin-top: 6em;
-	font-size: 1.5em;
-
-}
-.class-welcome{
-	text-align: center;
-	display:block;
-	
-}
-.button-style{
-	margin-top: 1.2em;
-}
-/* .welcome-enter {
-	opacity: 0.3;
-}
-.welcome-enter-to {
-	transition: opacity 1.5s;
 } */
 </style>

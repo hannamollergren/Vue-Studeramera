@@ -4,12 +4,17 @@
 			<h1>StuderaMera</h1>
 		</transition>
 		<img src="https://lh3.googleusercontent.com/cUqo_qCicnepYFwKICwtfaXm0rlK3DYRSHR1tCImXVD56pKVp64wpNg1jvtg-HhRfIGHWsMjV4olQeW6f1hYLTCtGCWA3uB8pOxHuC3JO1UA5pdFzPzftm4aNa5YcWasjjqjWzNuWQ=w2400" alt="Student">
-		<form>
-			<input type="text" placeholder="Användarnamn" v-model="userInfo.name" key="name"><br>
-			<input type="text" placeholder="E-mail adress" v-model="userInfo.email" key="email"><br>
-			<input type="text" placeholder="Pluggar till..." v-model="userInfo.study" key="study">
+		<form @submit.prevent="submitForm" autocomplete="off">
+			<input type="text" placeholder="Användarnamn" v-model="userInfo.name" key="name" id="name" @blur.once="nameIsTouched =true"><br>
+			<p v-if="!nameIsValid && nameIsTouched" class="error-message">Måste innehålla minst 3 tecken</p>
+
+			<input type="text" placeholder="E-post adress" v-model="userInfo.email" key="email" id="email" @blur.once="emailIsTouched =true">
+			<p v-if="!emailIsValid && emailIsTouched" class="error-message">Inte giltlig e-post adress</p><br>
+
+			<input type="text" placeholder="Pluggar till..." v-model="userInfo.study" key="study" id="study" @blur.once="studyIsTouched =true">
+			<p v-if="!studyIsValid && studyIsTouched" class="error-message">Ange utbildning</p>
 		</form>
-		<img src='https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k' alt="button" height="60px" class='button-style' @click="saveAndNext">
+    <button :disabled="!formIsValid" class='button' @click="saveAndNext"></button>
   </div>
 </template>
 <script>
@@ -23,7 +28,10 @@ export default {
 			study: ''
 	},
     visibleComponent: '',
-    visibleHeader: Boolean(true)
+	visibleHeader: Boolean(true),
+	nameIsTouched: Boolean(false),
+	emailIsTouched: Boolean(false),
+	studyIsTouched: Boolean(false)
   }),
   methods: {
     //Sparar input till local storage och går vidare till nästa component
@@ -32,7 +40,30 @@ export default {
   
     this.visibleComponent = 'welcome';
     this.$emit('click', this.visibleComponent, this.visibleHeader)
-  }
+    },
+    submitForm() {
+      /* const this.formIsValid = this.nameIsValid && this.emailIsValid && this.studyIsValid */
+    }
+  },
+  computed: {
+	nameIsValid (){
+		const name = this.userInfo.name
+		return name.length >= 3;
+	},
+
+	emailIsValid (){
+		const email = this.userInfo.email;
+		return email.length > 5 && email.includes('@');
+	},
+
+	studyIsValid (){
+		const study = this.userInfo.study
+		return study.length >= 2;
+	},
+
+	formIsValid () {
+		return this.nameIsValid && this.emailIsValid && this.studyIsValid
+	}
   },
   mounted(){
     //Hämtar tillbaka input-värden från mixin så att input-fälten inte är tomma
@@ -41,6 +72,10 @@ export default {
 };
 </script>
 <style scoped>
+.error-message {
+  margin-top: .5em;
+  font-size: .8em;
+}
 h1 {
   margin-top: 2em;
   margin-bottom: 0.5em;
@@ -57,17 +92,29 @@ img{
 }
 input {
   border: 2px solid #89C8C1;
-  margin-top: 1.5em;
+ /*  border: none; */
+  margin-top: 1.3em;
+  width: 40%;
 }
-.button-style {
-  margin-top: 1.2em;
+.button {
+  background-image: url('https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k');
+  background-position: center;
+  margin-top: 2.2em;
   margin-bottom: 1.2em;
   cursor: pointer;
+  width: 80px;
+  height: 80px;
 }
+
 .start-enter {
   opacity: 0;  
 }
 .start-enter-to {
   transition: opacity 2s;
+}
+ @media (max-width: 600px) {
+    input{
+		width: 60%;
+	}
 }
 </style>
