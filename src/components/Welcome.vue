@@ -5,42 +5,33 @@
 		</transition>
 		
 		<div>
-		<img src="../assets/studeramera-button.png" alt="button" height="60px" class='button-style' @click="next">
+			<button @click="userInfoButton">Mina sidor</button>
+			<img src="https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k" alt="button" height="60px" class='button-style' @click="next">
 		</div>
-
-		<br><br><br>
 	</div>
-
 </template>
 
 <script>
-import nameMixin from '../nameMixin.js'
-
+import nameMixin from '../nameMixin'
 export default {
 	mixins: [nameMixin],
-
 	data: () => ({
 		user: '' ,
 		visibleComponent: '',
 	}),
-
 	methods: {
 		next(){
-		console.log('start comp nextButton');
-		this.visibleComponent = 'allTasks';
-		console.log('welcome comp visablecomponent', this.visibleComponent);
-		this.$emit('click', this.visibleComponent)
+			this.visibleComponent = 'allTasks';
+			this.$emit('click', this.visibleComponent)
+		},
+		userInfoButton(){
+			this.visibleComponent = 'userInfo'
+			this.$emit('click', this.visibleComponent)
 		}
 	},
-	
-
 	mounted(){
-
 		this.user = this.getName()
-		
-		console.log('Värdet av user är', this.user)
 	}
-	
 }
 </script>
 

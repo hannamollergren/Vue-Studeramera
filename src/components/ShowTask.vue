@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="approval">
-            <p>Bra jobbat {{user}}!</p>
+            <p>{{ quote }}</p>
         </div>
         <div class="quote"><p>{{quote}}</p></div>
         <div class="pastime">
@@ -9,13 +9,13 @@
                 <h2 class="tasks">{{tasks[Math.floor(Math.random() * tasks.length)]}}.</h2>
             </div>
         </div>
-        <button class="learn" @click="HeartButton">Fortsätt Studera ❤️</button>
+        <button class="learn" @click="HeartButton">Studera mer ❤️</button>
     </div>
 </template>
 <script>
 import TaskService from "../shared/TaskService.js";
-import nameMixin from '../nameMixin.js';
-import axios from 'axios';
+import nameMixin from '../nameMixin';
+import axios from 'axios'
 export default {
     mixins: [TaskService, nameMixin],
     data: () => ({
@@ -39,14 +39,16 @@ export default {
         }
         }
     },
+    computed: {
+	},
 	created(){
 		axios.get("https://api.quotable.io/random")
 		.then((res) => {
 			this.quote = "\""+res.data.content+"\"";
 		})
+        .catch((err) => console.log(err));
 	},
     mounted(){
-        console.log('getTasks från service', this.getAddedTasks());
         this.tasks = this.getAddedTasks();
         this.user = this.getName();
     },
@@ -72,7 +74,7 @@ export default {
     }
     .approval {
 		font-size: 1.2em;
-		margin: 0 0 0 0;
+		margin: 0 3em 0;
     }
     .pastime {
         font-size: 3.8em;

@@ -3,6 +3,7 @@
     <Header v-if='visibleHeader'/>
     <Start v-if="visibleComponent == 'start'" @click="fromStart"/>
     <Welcome v-if="visibleComponent == 'welcome'" @click="fromWelcome"/>
+	<UserInfo v-if="visibleComponent == 'userInfo'" @click="fromUserInfo"/>
     <AllTasks v-if="visibleComponent == 'allTasks'" @click="fromAllTasks"/>
     <Timer v-if="visibleComponent == 'timer'" @click="fromTimer"/>
     <ShowTask v-if="visibleComponent == 'showtask'" @click="fromShowTask"/>
@@ -12,6 +13,7 @@
 import Header from "./components/Header.vue";
 import Start from "./components/Start.vue";
 import Welcome from "./components/Welcome.vue";
+import UserInfo from "./components/UserInfo.vue";
 import AllTasks from "./components/AllTasks.vue";
 import Timer from "./components/Timer.vue";
 import ShowTask from "./components/ShowTask.vue";
@@ -26,7 +28,8 @@ export default {
   components: {
     Header,
     Start,
-    Welcome,
+	Welcome,
+	UserInfo,
     AllTasks,
     Timer,
     ShowTask
@@ -35,9 +38,11 @@ export default {
 	fromStart(value, event){
 		this.visibleComponent = value;
 		this.visibleHeader = event
-
 	},
 	fromWelcome(value){
+		this.visibleComponent = value;
+	},
+	fromUserInfo(value){
 		this.visibleComponent = value;
 	},
 	fromAllTasks(value){
@@ -45,10 +50,10 @@ export default {
 	},
 	fromTimer(value){
 		this.visibleComponent = value;
-  },
-  fromShowTask(value){
-    this.visibleComponent = value;
-  }
+	},
+	fromShowTask(value){
+		this.visibleComponent = value;
+	}
 }
 };
 </script>

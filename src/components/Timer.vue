@@ -22,7 +22,7 @@ export default {
 startTimer() {
     // ange timern i sek
 	/* let duration = 60*25; */
-	let duration = 4;
+	let duration = 5;
 	
     // initialisera timer i minuter och sekunder
     let timer = duration, 
@@ -70,7 +70,6 @@ resetTimer(){
 </script>
 <style scoped>
 .container{
-    width: 100%;
     background-color: #FCF9EA;
     text-align: center;
     color: #F8A978;
@@ -94,7 +93,7 @@ resetTimer(){
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1.2em;
 }
 .button-reset {
   border-radius: 25px;
@@ -106,9 +105,22 @@ resetTimer(){
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px
+  font-size: 1.2em;
 }
 button:hover {
   background-color: #6c9b95;
+}
+@media only screen and (max-width: 600px){
+.button-start{
+	display: block;
+	width: 80%;
+	margin: 0 2em 1em 2em;
+}
+.button-reset{
+	display: block;
+	width: 80%;
+	margin: 0 2em 0 2em;
+
+}
 }
 </style>
