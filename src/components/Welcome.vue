@@ -42,7 +42,6 @@ export default {
         nextButton(){
             this.visibleComponent = 'allTasks';
             this.$emit('click', this.visibleComponent)
-            console.log('nextButton userinfo', this.userInfo);
             this.saveInput(this.userInfo);
         },
         inputUserName(event) {
@@ -57,15 +56,13 @@ export default {
     },
     mounted(){
         this.user = this.getName();
-        let test = JSON.parse(localStorage.getItem('info'));
-        console.log('userinfo comp mounted', test);
+		JSON.parse(localStorage.getItem('info'));
         if(localStorage.getItem('info') == null)
         {
-            console.log('I if sats. Finns inget i ls just nu')
+            console.log('Finns inget i ls just nu')
         }
         else{
             this.userInfo = JSON.parse(localStorage.getItem('info'));
-            console.log('userinfo comp else', this.userInfo);
         }
     }
 }
@@ -92,10 +89,4 @@ p {
 .button{
 	background-color:#F8A978;
 }
-/* .welcome-enter {
-    opacity: 0.3;
-}
-.welcome-enter-to {
-    transition: opacity 1.5s;
-} */
 </style>

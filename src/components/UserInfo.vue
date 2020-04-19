@@ -9,7 +9,6 @@
 					<button class="back" @click="backButton">Tillbaka</button>
 				</div>
 				<div class="item-right">
-					<!-- 	<img src="https://lh3.googleusercontent.com/u7kwTrWQAE9lq3HKzXtDG9xMrIPpNQzjLMtC8LWhT7-6qttp1cMTwBntHqhvFW8fntas17li4qJd0-ykwA2IwG2U-4VxT3NKLKb7Y9w44LlgGq7lU_YzTl2_ELvsBINjG7vJfTX2IA=s200-p-k" alt="image"> -->
 						<span>Användarnamn:</span><p contenteditable @input="inputUserName">{{ userInfo.name }}</p>
 						<span>E-mail:</span><p contenteditable @input="inputEmail">{{ userInfo.email }}</p>
 						<span>Pluggar till:</span><p contenteditable @input="inputSubject">  {{ userInfo.study }}</p>	
@@ -43,7 +42,6 @@ export default {
 		nextButton(){
 			this.visibleComponent = 'allTasks';
 			this.$emit('click', this.visibleComponent)
-			console.log('nextButton userinfo', this.userInfo);
 			this.saveInput(this.userInfo);
 		},
 		inputUserName(event) {
@@ -58,15 +56,13 @@ export default {
 	},
 	mounted(){
 		this.user = this.getName();
-		let test = JSON.parse(localStorage.getItem('info'));
-		console.log('userinfo comp mounted', test);
+		JSON.parse(localStorage.getItem('info'));
 		if(localStorage.getItem('info') == null)
 		{
-			console.log('I if sats. Finns inget i ls just nu')
+			console.log('Finns inget i ls just nu')
 		}
 		else{
 			this.userInfo = JSON.parse(localStorage.getItem('info'));
-			console.log('userinfo comp else', this.userInfo);
 		}		
 	}
 }

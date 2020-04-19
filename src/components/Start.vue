@@ -23,9 +23,9 @@ export default {
   mixins: [nameMixin],
   data: () => ({
 	userInfo: {
-			name: '',
-			email: '',
-			study: ''
+		name: '',
+		email: '',
+		study: ''
 	},
     visibleComponent: '',
 	visibleHeader: Boolean(true),
@@ -47,17 +47,14 @@ export default {
 		const name = this.userInfo.name
 		return name.length >= 3;
 	},
-
 	emailIsValid (){
 		const email = this.userInfo.email;
 		return email.length > 5 && email.includes('@');
 	},
-
 	studyIsValid (){
 		const study = this.userInfo.study
 		return study.length >= 2;
 	},
-
 	formIsValid () {
 		return this.nameIsValid && this.emailIsValid && this.studyIsValid
 	}
@@ -84,20 +81,29 @@ img{
   margin-right: auto;
 }
 input {
-  border: 2px solid #89C8C1;
-  margin-top: 1.3em;
-  width: 30%;
+  border: 1px solid lightgrey;
+  /* border-style: none; */
+  margin-top: 1.5em;
+  width: 30%
 }
 .button {
-  background-image: url('https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k');
+  background-image: url("https://lh3.googleusercontent.com/T7S2s8Vxioac7r9IGgaqEPs6oeOJYU0VFAS8eUwfJNRhT_k8uvT9Yio6jfCnbWzui3ZJghtu148ngFwKLWn5JNe5XeIAFeUOJzAItumvPt0ewj1jC6XONDZ6vef73QvEIT3_2AMjtA=s60-p-k");
   background-position: center;
-  margin-top: 2.2em;
+  margin-top: 1.2em;
   margin-bottom: 1.2em;
   cursor: pointer;
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
-
+.button:disabled { 
+  background-image: url("https://lh3.googleusercontent.com/9kQUsrre5NuFj8bCMW-LWxez1387_1uU1GMtA4xgBSnHrpujltRViGXmD5CgwFnBoe3EsrGfOUwA_QWlJA8Z6HnylXIjcDR7Zew2KbD0CiHT4eWNSjEKDELqgGi2PEDDAQMAbRc2Gw=s60-p-k");
+  background-position: center;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  }
 .start-enter {
   opacity: 0;  
 }
