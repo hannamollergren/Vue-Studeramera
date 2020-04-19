@@ -3,7 +3,9 @@
 		<div class="container">
 				<div class="item-left">
 					<h2 class="title">Mina sidor</h2>
-					<p class="undertitle">Hej {{ user }}. Här på denna sidan få du en överblick på dina personuppgifter du uppgett. Du kan enkelt redigera din uppgifter genom att klicka på önskad uppgift.</p>
+					<p class="undertitle">Hej {{ user }}!<br>
+						Kul att du använder vår app. Här är en överblick över dina uppgifter. Du kan enkelt redigera dina uppgifter genom att klicka på texten du vill ändra.
+					</p>
 					<button class="back" @click="backButton">Tillbaka</button>
 				</div>
 				<div class="item-right">

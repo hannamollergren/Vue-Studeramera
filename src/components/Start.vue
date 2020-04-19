@@ -85,9 +85,8 @@ img{
 }
 input {
   border: 2px solid #89C8C1;
- /*  border: none; */
   margin-top: 1.3em;
-  width: 40%;
+  width: 30%;
 }
 .button {
   background-image: url('https://lh3.googleusercontent.com/DmRIkCSZW8W6LCQ7BbihQdkAS_FB6ANnGfBPURvNa7UqTHGXhSfNe70yzIKdKXTvnr-wEGcf01WfAU6m3U3Jlzz1MRqMOCh_XXj-k20IGlrahcNaJciBShzZWTvP7I4tlL5ELrbJIw=s88-p-k');

@@ -4,7 +4,7 @@
       <p>Välkommen {{user}}!</p>
     </transition>
     <div class="myPage">
-      <button @click="userInfoButton">Mina sidor</button>
+      <button @click="userInfoButton" class="button">Mina sidor</button>
     </div>
     <div class="button-style">
       <img
@@ -88,6 +88,9 @@ p {
   margin-top: 1.2em;
   cursor: pointer;
   display: block;
+}
+.button{
+	background-color:#F8A978;
 }
 /* .welcome-enter {
     opacity: 0.3;
